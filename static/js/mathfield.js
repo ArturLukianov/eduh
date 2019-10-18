@@ -35,7 +35,7 @@ function flipCard(cardNumber)
 	let start = Date.now();
 	let timer = setInterval(function() {
 		let timePassed = Date.now() - start;
-		if(timePassed >= animation_time)
+		if(timePassed >= animationTime)
 		{
 			clearInterval(timer);
 			return;
@@ -46,8 +46,9 @@ function flipCard(cardNumber)
 	}
 }
 
-function cardFlipAnimation(number, timePassed) {
-	document.getElementsByClassName('letter-container')[number].style = "transform: rotateX(" + timePassed / animation_time * 180 + "deg);";
+function cardFlipAnimation(cardNumber, timePassed) {
+	document.getElementsByClassName('letter-container')[cardNumber].style = 
+			"transform: rotateX(" + timePassed / animationTime * 180 + "deg);";
 }
 
 function blink()
@@ -55,11 +56,11 @@ function blink()
 	var blinkingElement = document.getElementById("selected-bc");
 	if(currentBlinksCount % 2 == 0)
 	{
-		selected.style="background: #7777CC";
+		blinkingElement.style="background: #7777CC";
 	}
 	else
 	{
-		selected.style="background: #5555AA";
+		blinkingElement.style="background: #5555AA";
 	}
 	currentBlinksCount ++;
 	if(currentBlinksCount == blinksCount)
@@ -85,7 +86,7 @@ function shiftRoulette()
 	var rouletteHandler = document.getElementById("baraban-handler");
 	var rouletteFirstCell = rouletteCells[0].cloneNode();
 	
-	for(var i = 0; i < cells.length; i++)
+	for(var i = 0; i < rouletteCells.length; i++)
 	{
 		if(rouletteCells[i].id == "selected-bc")
 		{
@@ -126,6 +127,35 @@ function startRoulette()
 	intervalHandler = setInterval(shiftRoulette, 100);
 }
 
+function clearWord()
+{
+	var wordHandler = document.getElementById("word-handler");
+	while(wordHandler.firstChild) {
+		wordHandler.removeChild(wordHandler.firstChild);
+	}
+}
+
+function generateWord(word)
+{
+	var wordHandler = document.getElementById("word-handler");
+	for(var i = 0; i < word.length; i++)
+	{
+		var letter = document.createElement('div');
+		letter.className = "letter";
+		letter.innerHTML = word[i];
+		
+		var letterWrapper = document.createElement('div');
+		letterWrapper.className = "letter-wrapper";
+		letterWrapper.append(letter);
+		
+		var tableElement = document.createElement('td');
+		tableElement.className = "letter-container";
+		tableElement.append(letterWrapper);
+		
+		wordHandler.append(tableElement);
+	}
+}
+
 function updateRouletteState(state)
 {
 	if(state["baraban"] == 0)
@@ -136,34 +166,25 @@ function updateRouletteState(state)
 
 function updateWordState(state)
 {
-	var word_handler = document.getElementById("word-handler");
-	if(lastWord.length == 0)
-		lastWord = state["word"];
-	while(word_handler.firstChild) {
-		word_handler.removeChild(word_handler.firstChild);
-	}
-	for(var i = 0; i < state["word"].length; i++)
+	var newWord = state["word"];
+	if(lastWord.length != newWord.length)
 	{
-		var new_node = document.createElement('div');
-		new_node.className = "letter-wrapper";
-		var new_letter = document.createElement('div');
-		if(lastWord.length > i && lastWord[i] == "?")
-			new_letter.className = "letter";
-		else
-			new_letter.className = "new-letter";
-		new_letter.innerHTML = state["word"][i];
-		new_node.append(new_letter);
-		var new_n_node = document.createElement('td');
-		new_n_node.className = "letter-container";
-		new_n_node.append(new_node);
-		word_handler.append(new_n_node);
+		clearWord();
+		generateWord(newWord);
+		lastWord = newWord;
+		return;
 	}
-	for(var i = 0; i < state["word"].length; i++)
+	var wordHandler = document.getElementById("word-handler");
+	var letters = document.getElementsByClassName('letter');
+	for(var i = 0; i < newWord.length; i++)
 	{
-		if(lastWord[i] != state["word"][i])
-			animate_corpse(i)();
+		if(lastWord[i] != newWord[i])
+		{
+			letters[i].innerHTML = newWord[i];
+			flipCard(i)();
+		}
 	}
-	lastWord = state["word"];
+	lastWord = newWord;
 }
 
 function updateScoreState(state)
