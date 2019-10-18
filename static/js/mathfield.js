@@ -190,7 +190,7 @@ function updateWordState(state)
 function updateScoreState(state)
 {
 	var score_handler = document.getElementById("score-handler");
-	score_handler.colSpan = state["word"].length;
+	score_handler.colSpan = state["word"].length; 
 	document.getElementById("baraban-tidy").colSpan = state["word"].length;
 	document.getElementById("score1").innerHTML = state["score1"];
 	document.getElementById("score2").innerHTML = state["score2"];
