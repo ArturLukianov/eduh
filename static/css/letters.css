@@ -25,16 +25,6 @@
 	transform: rotateX(180deg);
 }
 
-.new-letter {
-	backface-visibility: hidden;
-	transform: rotateX(0deg);
-}
-
-/*
-.letter-container:hover {
-	transform: rotateX(180deg);
-}*/
-
 .score-td {
 	font-size: 30vh;
 	margin-left: 20%;
