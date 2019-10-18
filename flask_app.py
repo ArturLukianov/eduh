@@ -87,7 +87,7 @@ def send_js(path):
 +----------+
 """
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     cookie = request.cookies.get('token')
     if cookie != None:
@@ -99,8 +99,13 @@ def login():
             return redirect("/profile")
     return "UNDER CONSTRUCTION"
 
-@app.route('/signup', methods=['POST'])
+@app.route('/signup')
 def signup():
+    return render_template("signup.html")
+
+@app.route('/signup', methods=['POST'])
+def signup_post():
+    global users
     password = request.form['password']
     login = request.form['login']
     role = request.form['role']
@@ -109,10 +114,12 @@ def signup():
         error = "Password length must be at least 8 symblos long"
     for i in users:
         if users["login"] == login:
-            error = "User with this login already exists"    if error != None:
+            error = "User with this login already exists"
+    if error != None:
         return render_template("signup.html", error=error)
     responce = redirect("/profile")
-    responce.set_cookie('token', str(rnd(100, 1000000)))
+    token = str(rnd(100, 100000))
+    responce.set_cookie('token', token)
     users.append({"login":login,
                   "password":password,
                   "token":token,
@@ -122,6 +129,7 @@ def signup():
 
 @app.route('/profile')
 def profile():
+    print(users)
     return render_template("profile.html")
 
 """
@@ -166,7 +174,7 @@ games.append([12345,Game("word",
              ["2", "2"]],
             ["#FF0000",
              "#00FF00",
-             "#0000FF"])])
+             "#0000FF"], users)])
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
