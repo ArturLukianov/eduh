@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Математическая карусель</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/css/sign-in.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form method="POST" class="form-signin" action="/login">
+      <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
+      <label for="inputPassword" class="sr-only">Пароль</label>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+	  {% if error %}
+	  {{ error|safe }}
+	  {% endif %}
+    </form>
+  </body>
+</html>
