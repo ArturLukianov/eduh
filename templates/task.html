@@ -6,19 +6,19 @@
     <title>Математическая карусель</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="/css/sign-in.css" rel="stylesheet">
-	
     <link href="/css/letters.css" rel="stylesheet">
   </head>
 
-  <body class="text-center">
-    <form method="POST" class="form-signin">
-      <p class="h3 mb-3 font-weight-normal task-text">{{ task|safe }}</p>
-      <label for="inputAnswer" class="sr-only">Ответ:</label>
-      <input name="answer" type="answer" id="inputAnswer" class="form-control" placeholder="Ответ" required>
-	  <br/>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Ответить</button>
-    </form>
+  <body>
+	<div class="text-center">
+		<form method="POST" class="form-signin">
+		  <p class="h3 mb-3 font-weight-normal task-text">{{ task|safe }}</p>
+		  <label for="inputAnswer" class="sr-only">Ответ:</label>
+		  <input name="answer" type="answer" id="inputAnswer" class="form-control" placeholder="Ответ" required>
+		  <br/>
+		  <button class="btn btn-lg btn-primary btn-block" type="submit">Ответить</button>
+		</form>
+	</div>
   </body>
 </html>

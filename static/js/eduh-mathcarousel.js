@@ -11,24 +11,6 @@ var blinksCount = 20;
 var currentBlinksCount = 0;
 var animationInterval = 20;
 
-function apiGetState()
-{
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "/api/get_state", false);
-	xhr.send();
-	if(xhr.status == 200)
-	{
-		return JSON.parse(xhr.responseText);
-	}
-}
-
-function apiStopRoulette()
-{
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "/api/stop_baraban", false);
-	xhr.send();
-}
-
 function flipCard(cardNumber)
 {
 	return function(){
@@ -110,7 +92,7 @@ function shiftRoulette()
 	else
 	{
 		startBlinking();
-		apiStopRoulette();
+		apiMathcarouselStopRoulette();
 	}
 }
 
@@ -240,7 +222,7 @@ function updateState()
 {
 	if(rouletteSpinning)
 		return;
-	var state = apiGetState();
+	var state = apiMathcarouselGetState();
 	updateRouletteState(state);
 	updateWordState(state);
 	updateScoreState(state);

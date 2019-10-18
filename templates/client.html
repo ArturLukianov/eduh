@@ -10,13 +10,13 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/sign-in.css" rel="stylesheet">
 	<link href="/css/letters.css" rel="stylesheet">
-	<!-- <script src="js/mathfield.js"> -->
   </head>
 
-  <body class="text-center">
-      {% if error %}
-	  {{ error|safe }}<br/>
+  <body>
+	  {% if error %}
+		{{ error|safe }}
 	  {% endif %}
+	<div class="text-center">
       <table class="letter-button-grid">
 		<tr>
 			<td><a href="/task/а"><button class="btn btn-secondary button-letter" style="background-color:{{ color }};">A</button></td>
@@ -59,6 +59,7 @@
 			<td><a href="/task/я"><button class="btn btn-secondary button-letter" style="background-color:{{ color }};">Я</button></td>
 		</tr>
 	  </table>
+	 </div>
   </body>
   
 </html>
