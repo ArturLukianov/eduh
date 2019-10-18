@@ -1,0 +1,61 @@
+.score-td {
+	font-size: 30vh;
+	margin-left: 20%;
+	width: 100%;
+}
+
+.scoreboard {
+	table-layout: fixed;
+	border-collapse: separate;
+	width: 100%;
+}
+
+#score1 {
+	background: #EE9999; 
+	border-radius:2%; 
+}
+
+#score2 {
+	background: #99EE99; 
+	border-radius:2%; 
+}
+
+#score3 {
+	background: #9999EE; 
+	border-radius:2%; 
+}
+
+#score4 {
+	background: #EE99EE; 
+	border-radius:2%; 
+}
+
+#score5 {
+	background: #99EEEE; 
+	border-radius:2%; 
+}
+
+#score1.selected-score {
+	background: #FF2222; 
+	border-radius:2%; 
+}
+
+#score2.selected-score {
+	background: #22FF22; 
+	border-radius:2%; 
+}
+
+#score3.selected-score {
+	background: #2222FF; 
+	border-radius:2%; 
+}
+
+#score4.selected-score {
+	background: #FF22FF; 
+	border-radius:2%;
+}
+
+#score5.selected-score {
+	background: #22FFFF; 
+	border-radius:2%; 
+}

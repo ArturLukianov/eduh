@@ -25,48 +25,12 @@
 	transform: rotateX(180deg);
 }
 
-.score-td {
-	font-size: 30vh;
-	margin-left: 20%;
-	width: 100%;
-}
-
-.scoreboard {
-	table-layout: fixed;
-	border-collapse: separate;
-	width: 100%;
-}
-
-.baraban {
-	table-layout: fixed;
-	border-collapse: separate;
-	width: 100%;
-}
-
-.baraban-cell {
-	border-radius: 10%;
-	background: #CCCCCC;
-}
-
-#selected-bc {
-	border: #FFFFFF 4px solid;
-	border-radius: 10%;
-}
-
 .letter-button {
-	font-size: 15vh;
-	border: 20% solid #CCCCCC;
-	border-radius: 10%;
-	margin-left: 20%;
-	background: #CCCCCC;
-}
-
-.button-letter {
 	font-size: 300%;
 	width: 100%;
 }
 
-.button-letter:hover{
+.letter-button:hover{
 	background: #AAAAAA;
 	color: black;
 }
@@ -77,76 +41,3 @@
 	width: 100%;
 }
 
-.binarycats {
-	color: gray;
-	font-size: 20px;
-}
-
-.t1 {
-	background: #222222;
-	color: #FFFFFF;
-}
-
-#selected-bc.t1 {
-	background: #000000;
-	color: #FFFFFF;
-}
-
-.t2 {
-	background: #997777;
-	color: #FFFFFF;
-}
-
-#selected-bc.t2 {
-	background: #990000;
-	color: #FFFFFF;
-}
-
-.t3 {
-	background: #779977;
-	color: #FFFFFF;
-}
-
-#selected-bc.t3 {
-	background: #009900;
-	color: #FFFFFF;
-}
-
-#score1 {
-	background: #EE9999; 
-	border-radius:2%; 
-}
-
-#score2 {
-	background: #99EE99; 
-	border-radius:2%; 
-}
-
-.task-text {
-	font-size: 3vh;
-}
-
-.my-modal {
-	font-size: 4vh;
-}
-
-#score3 {
-	background: #9999EE; 
-	border-radius:2%; 
-}
-
-
-#score1.selected-score {
-	background: #FF2222; 
-	border-radius:2%; 
-}
-
-#score2.selected-score {
-	background: #22FF22; 
-	border-radius:2%; 
-}
-
-#score3.selected-score {
-	background: #2222FF; 
-	border-radius:2%; 
-}

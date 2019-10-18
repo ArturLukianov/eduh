@@ -1,0 +1,40 @@
+.roulette {
+	table-layout: fixed;
+	border-collapse: separate;
+	width: 100%;
+}
+
+.roulette-cell {
+	border-radius: 10%;
+	background: #CCCCCC;
+}
+
+.roulette-black {
+	background: #222222;
+	color: #FFFFFF;
+}
+
+#roulette-cell-selected.roulette-black {
+	background: #000000;
+	color: #FFFFFF;
+}
+
+.roulette-red {
+	background: #997777;
+	color: #FFFFFF;
+}
+
+#roulette-cell-selected.roulette-red {
+	background: #990000;
+	color: #FFFFFF;
+}
+
+.roulette-green {
+	background: #779977;
+	color: #FFFFFF;
+}
+
+#roulette-cell-selected.roulette-green {
+	background: #009900;
+	color: #FFFFFF;
+}

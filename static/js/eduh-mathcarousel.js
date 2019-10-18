@@ -64,16 +64,16 @@ function checkRouletteSpinning()
 
 function shiftRoulette()
 {
-	var rouletteCells = document.getElementsByClassName("baraban-cell");
-	var rouletteHandler = document.getElementById("baraban-handler");
+	var rouletteCells = document.getElementsByClassName("roulette-cell");
+	var rouletteHandler = document.getElementById("roulette-handler");
 	var rouletteFirstCell = rouletteCells[0].cloneNode();
 	
 	for(var i = 0; i < rouletteCells.length; i++)
 	{
-		if(rouletteCells[i].id == "selected-bc")
+		if(rouletteCells[i].id == "roulette-cell-selected")
 		{
 			rouletteCells[i].id = "";
-			rouletteCells[i + 1].id = "selected-bc";
+			rouletteCells[i + 1].id = "roulette-cell-selected";
 			break;
 		}
 	}
@@ -104,7 +104,7 @@ function startBlinking()
 
 function startRoulette()
 {
-	document.getElementById("selected-bc").style = "";
+	document.getElementById("roulette-cell-selected").style = "";
 	currentRouletteStep = 0;
 	intervalHandler = setInterval(shiftRoulette, 100);
 }
@@ -173,7 +173,7 @@ function updateScoreState(state)
 {
 	var score_handler = document.getElementById("score-handler");
 	score_handler.colSpan = state["word"].length; 
-	document.getElementById("baraban-tidy").colSpan = state["word"].length;
+	document.getElementById("roulette-row").colSpan = state["word"].length;
 	document.getElementById("score1").innerHTML = state["score1"];
 	document.getElementById("score2").innerHTML = state["score2"];
 	document.getElementById("score3").innerHTML = state["score3"];

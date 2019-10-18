@@ -8,8 +8,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/sign-in.css" rel="stylesheet">
 	<link href="/css/letters.css" rel="stylesheet">
+	<link href="/css/roulette.css" rel="stylesheet">
+	<link href="/css/score.css" rel="stylesheet">
+	<link href="/css/mathcarousel.css" rel="stylesheet">
 	<script src="/js/eduh-api.js"></script>
 	<script src="/js/eduh-mathcarousel.js"></script>
   </head>
@@ -31,24 +33,24 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="7" id="baraban-tidy">
-				<table class="baraban">
-					<tr id="baraban-handler">
-						<td class="t1 baraban-cell">8</td>
-						<td class="t2 baraban-cell">9</td>
-						<td class="t1 baraban-cell">10</td>
-						<td class="t2 baraban-cell">11</td>
-						<td class="t1 baraban-cell">12</td>
-						<td class="t2 baraban-cell">13</td>
-						<td class="t1 baraban-cell">14</td>
-						<td class="t2 baraban-cell" id="selected-bc">0</td>
-						<td class="t1 baraban-cell">1</td>
-						<td class="t2 baraban-cell">2</td>
-						<td class="t1 baraban-cell">3</td>
-						<td class="t2 baraban-cell">4</td>
-						<td class="t1 baraban-cell">5</td>
-						<td class="t2 baraban-cell">6</td>
-						<td class="t3 baraban-cell">7</td>
+			<td colspan="7" id="roulette-row">
+				<table class="roulette">
+					<tr id="roulette-handler">
+						<td class="roulette-black roulette-cell">8</td>
+						<td class="roulette-red roulette-cell">9</td>
+						<td class="roulette-black roulette-cell">10</td>
+						<td class="roulette-red roulette-cell">11</td>
+						<td class="roulette-black roulette-cell">12</td>
+						<td class="roulette-red roulette-cell">13</td>
+						<td class="roulette-black roulette-cell">14</td>
+						<td class="roulette-green roulette-cell" id="roulette-cell-selected">0</td>
+						<td class="roulette-black roulette-cell">1</td>
+						<td class="roulette-red roulette-cell">2</td>
+						<td class="roulette-black roulette-cell">3</td>
+						<td class="roulette-red roulette-cell">4</td>
+						<td class="roulette-black roulette-cell">5</td>
+						<td class="roulette-red roulette-cell">6</td>
+						<td class="roulette-black roulette-cell">7</td>
 					</tr>
 				</table>
 			</td>
@@ -56,7 +58,7 @@
 		</tr>
 	  </table>
 		<!-- Task popup -->
-		<div class="my-modal modal" tabindex="-1" role="dialog" style="display: block;" id="modal">
+		<div class="task-modal modal" tabindex="-1" role="dialog" style="display: block;" id="modal">
 		  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
 			<div class="modal-content">
 			  <div class="modal-header" id="color-marker">
