@@ -1,2 +1,2 @@
 # eduh
-Eduh is educational game server.
+Eduh is educational games server.
