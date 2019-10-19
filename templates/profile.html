@@ -6,12 +6,19 @@
     <title>Математическая карусель</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/sign-in.css" rel="stylesheet">
+	<link href="/css/profile.css" rel="stylesheet">
   </head>
 
   <body>
 	<div class="text-center">
-		<img src="https://live.staticflickr.com/4896/32750963358_7f35640b99_b.jpg" width="100px" height="100px"/>
+		<h1>Личный кабинет</h1>
+		<form method="POST" class="centered-form" action="/join-game">
+		  <h1 class="h3 mb-3 font-weight-normal">Присоедениться к игре</h1>
+		  <label for="inputPin" class="sr-only">Код игры</label>
+		  <input name="pin" type="login" id="inputPin" class="form-control" placeholder="Код игры" required><br/>
+		  <button class="btn btn-lg btn-primary btn-block" type="submit">Присоеденится</button>
+		  <br/>
+		</form>
 	</div>
   </body>
 </html>
