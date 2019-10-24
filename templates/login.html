@@ -18,9 +18,10 @@
 		  <label for="inputPassword" class="sr-only">Пароль</label>
 		  <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
 		  <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+		  <div class="h6">Don't have an account? <a href="/signup">Register now!</a></div>
 		  <br/>
 		  {% if error %}
-			{{ error|safe }}
+			<p class="alert alert-warning">{{ error|safe }}</p>
 		  {% endif %}
 		</form>
 	</div>

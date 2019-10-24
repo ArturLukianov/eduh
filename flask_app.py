@@ -57,11 +57,7 @@ class Game:
         if self.turns_count != -1:
             return redirect('/client')
         if self.get_command(request) == -1:
-            return redirect("/login")
-
-    #def login(self, request):
-    #    cookie = request.cookies.get('token')
-        
+            return redirect("/login")        
         
         
 
@@ -87,17 +83,43 @@ def send_js(path):
 +----------+
 """
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login')
 def login():
     cookie = request.cookies.get('token')
     if cookie != None:
+        print(users)
+        print("uu")
         exists = False
         for i in users:
             if i["token"] == cookie:
                 exists = True
         if exists:
             return redirect("/profile")
-    return "UNDER CONSTRUCTION"
+        else:
+            print(users)
+            print("wrong",cookie)
+    return render_template('login.html')
+
+@app.route('/login', methods=['POST', 'GET'])
+def login_post():
+    cookie = request.cookies.get('token')
+    if cookie != None:
+        print(users)
+        exists = False
+        for i in users:
+            if i["token"] == cookie:
+                exists = True
+        if exists:
+            return redirect("/profile")
+    login = request.form['login']
+    password = request.form['password']
+    for i in users:
+        if login == i['login']:
+            if password == i['password']:
+                resp = redirect('/profile')
+                resp.set_cookie(i['token'])
+                return resp
+    return render_template('login.html', error="Incorrect username or password")
 
 @app.route('/signup')
 def signup():
@@ -127,9 +149,11 @@ def signup_post():
                   "game":0})
     return responce
 
-@app.route('/profile')
+@app.route('/profile', methods=['POST', 'GET'])
 def profile():
-    print(users)
+    cookie = request.cookies.get('token')
+    if cookie == None:
+        return redirect("login")
     return render_template("profile.html")
 
 """
