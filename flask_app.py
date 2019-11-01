@@ -171,18 +171,26 @@ def client():
 
 @app.route('/create_game')
 def create_game():
+<<<<<<< HEAD
     #print(request.cookies.get())
     if get_userid(request) == None:
+=======
+    if get_userid(request):
+>>>>>>> master
         return redirect('/login')
     return render_template("create_game.html")
 
 @app.route('/create_game', methods=['POST'])
 def create_game_post():
+<<<<<<< HEAD
     if get_userid(request) == None:
         return redirect('/login')
     name = request.form['name']
     word = request.form['word']
     tasks = request.form['tasks'].split('\n')
+=======
+    pass
+>>>>>>> master
 
 """
 +-------------+
