@@ -77,6 +77,19 @@ def send_css(path):
 def send_js(path):
     return send_static_folder(path, "js")
 
+def get_userid(request):
+    token = request.cookies.get('token')
+    if token == None:
+        return None
+    _id = None
+    for i in range(len(users)):
+        print("kek")
+        print(users[i])
+        if token == users[i]['token']:
+            _id = i
+    return _id
+    
+
 """
 +----------+
 |USER PAGES|
@@ -85,19 +98,9 @@ def send_js(path):
 
 @app.route('/login')
 def login():
-    cookie = request.cookies.get('token')
-    if cookie != None:
-        print(users)
-        print("uu")
-        exists = False
-        for i in users:
-            if i["token"] == cookie:
-                exists = True
-        if exists:
-            return redirect("/profile")
-        else:
-            print(users)
-            print("wrong",cookie)
+    _id = get_userid(request)
+    if _id != None:
+        return redirect('/profile')
     return render_template('login.html')
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -166,9 +169,20 @@ def profile():
 def client():
     return game.client(request)
 
-@app.route('/create_game', methods=['POST'])
+@app.route('/create_game')
 def create_game():
-    return game.create_game(request)
+    #print(request.cookies.get())
+    if get_userid(request) == None:
+        return redirect('/login')
+    return render_template("create_game.html")
+
+@app.route('/create_game', methods=['POST'])
+def create_game_post():
+    if get_userid(request) == None:
+        return redirect('/login')
+    name = request.form['name']
+    word = request.form['word']
+    tasks = request.form['tasks'].split('\n')
 
 """
 +-------------+
