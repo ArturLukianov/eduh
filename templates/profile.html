@@ -12,13 +12,20 @@
   <body>
 	<div class="text-center">
 		<h1>Личный кабинет</h1>
-		<form method="POST" class="centered-form" action="/join-game">
-		  <h1 class="h3 mb-3 font-weight-normal">Присоедениться к игре</h1>
-		  <label for="inputPin" class="sr-only">Код игры</label>
-		  <input name="pin" type="login" id="inputPin" class="form-control" placeholder="Код игры" required><br/>
-		  <button class="btn btn-lg btn-primary btn-block" type="submit">Присоеденится</button>
-		  <br/>
-		</form>
+		{% if is_teacher %}
+			<form method="POST" class="centered-form" action="/create-game">
+			  <button class="btn btn-lg btn-primary btn-block" type="submit">Создать игру</button>
+			  <br/>
+			</form>
+		{% elif %}
+			<form method="POST" class="centered-form" action="/join-game">
+			  <h1 class="h3 mb-3 font-weight-normal">Присоедениться к игре</h1>
+			  <label for="inputPin" class="sr-only">Код игры</label>
+			  <input name="pin" type="login" id="inputPin" class="form-control" placeholder="Код игры" required><br/>
+			  <button class="btn btn-lg btn-primary btn-block" type="submit">Присоеденится</button>
+			  <br/>
+			</form>
+		{% endif %}
 	</div>
   </body>
 </html>
